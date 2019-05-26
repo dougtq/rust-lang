@@ -7,26 +7,29 @@ fn main() {
     
     // println!("The number to be guessed is {}", to_be_guessed);
 
-    println!("Let's play a guessing game!");
+    println!("Adivinhe o numero!");
+    loop {
+        println!("Digite um numero e pressione Enter!");
 
-    println!("Please input your guess");
+        let mut guess =  String::new();
 
-    let mut guess =  String::new();
-
-    io::stdin().read_line(&mut guess)
-        .expect("Failed to read line :(");
-
-
-    let guess:u32 = guess.trim().parse()
-        .expect("Please type a number!");
+        io::stdin().read_line(&mut guess)
+            .expect("Falha ao ler o que você digitou :(");
 
 
-    match guess.cmp(&to_be_guessed) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!"),
+        let guess:u32 = guess.trim().parse()
+            .expect("Não foi digitado um numero");
+
+        match guess.cmp(&to_be_guessed) {
+            Ordering::Less => println!("Muito baixo!"),
+            Ordering::Greater => println!("Muito alto!"),
+            Ordering::Equal => {
+                println!("Você venceu :):):):):) !");
+                break;
+            }
+        }
+
+        println!("You guessed: {}", guess);
     }
-
-    println!("You guessed: {}", guess);
 
 }
