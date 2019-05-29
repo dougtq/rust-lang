@@ -17,14 +17,16 @@ fn main() {
             .expect("Falha ao ler o que você digitou :(");
 
 
-        let guess:u32 = guess.trim().parse()
-            .expect("Não foi digitado um numero");
+        let guess:u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         match guess.cmp(&to_be_guessed) {
             Ordering::Less => println!("Muito baixo!"),
             Ordering::Greater => println!("Muito alto!"),
             Ordering::Equal => {
-                println!("Você venceu :):):):):) !");
+                println!("Você venceu! :)");
                 break;
             }
         }
