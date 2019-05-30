@@ -42,6 +42,25 @@ fn main() {
 
     let s3 = takes_and_gives_back(s2);
 
+
+    let mut s = String::from("hello");
+
+    {
+        let r1 = &mut s;
+
+    } // Maneira funcional de utilizar duas referencias mutaveis da mesma variavel
+
+    let r2 = &mut s;
+
+    let mut s = String::from("hello");
+
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+    println!("{} and {}", r1, r2);
+    // r1 e r2 fora de escopo, ja q não são mais usadas
+
+    let r3 = &mut s; // no problem
+    println!("{}", r3);
 }
 
 
