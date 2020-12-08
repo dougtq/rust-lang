@@ -1,0 +1,37 @@
+[tasks.A]
+dependencies = ["B", "C"]
+
+[tasks.B]
+dependencies = ["D"]
+
+[tasks.C]
+dependencies = ["D"]
+
+[tasks.D]
+script = [
+    "echo hello"
+]
+
+[tasks.code]
+script_runner = "@duckscript"
+script = [
+'''
+ls -lsa
+'''
+]
+
+[tasks.rust]
+script_runner = "@rust"
+script = [
+'''
+//! ```cargo
+//! [dependencies]
+//! time = "0.2.6"
+//! ```
+extern crate time;
+use time::Time;
+fn main() {
+    println!("{:?}", Time::now());
+}
+'''
+]

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rustapp
+spec:
+  selector:
+    matchLabels:
+      app: rustapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rustapp
+    spec:
+      containers:
+      - name: rustapp
+        image: diegopacheco/rust_service
+        env:
+        - name: RUST_SVC_VERSION
+          value: "1"        
+        ports:
+        - containerPort: 8080

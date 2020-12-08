@@ -1,0 +1,9 @@
+[package]
+name = "news-migrations"
+version = "1.0.0"
+authors = ["Diego.Pacheco"]
+edition = "2018"
+
+[dependencies]
+barrel = { version="0.6.4", features = ["pg"] }
+postgres = "0.17.0"

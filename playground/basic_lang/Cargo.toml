@@ -1,0 +1,7 @@
+[package]
+name = "basic_lang"
+version = "0.1.0"
+authors = ["Diego Pacheco <diego.pacheco.it@gmail.com>"]
+
+[dependencies]
+rand = "0.7.3" 

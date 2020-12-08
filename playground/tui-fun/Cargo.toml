@@ -1,0 +1,23 @@
+[package]
+name = "main"
+version = "1.0.0"
+authors = ["Diego.Pacheco"]
+edition = "2018"
+
+[dependencies]
+tui = "0.8.0"
+termion = { version = "1.5" }
+rand = "0.7.2"
+failure = "0.1"
+
+[[bin]]
+name = "table"
+path = "src/table/main.rs"
+
+[[bin]]
+name = "layout"
+path = "src/layout/main.rs"
+
+[[bin]]
+name = "chart"
+path = "src/chart/main.rs"
