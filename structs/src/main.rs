@@ -6,6 +6,15 @@ struct Rectangle {
     height: u32,
 }
 
+struct Point2D {
+    x: f64,
+    y: f64
+}
+
+struct Fuz {
+    zed: i32
+}
+
 impl Rectangle {
     // add code here
     fn area (&self) -> u32 {
@@ -50,4 +59,24 @@ fn main() {
 
     println!("{:#?}", Rectangle::square(45));
 
+    let a = Point2D {
+        x: 7.64,
+        y: 20.04
+    };
+
+    let b = Point2D {
+        x: 3.64,
+        y: -14.61
+    };
+
+    let c = add_points(a, b);
+
+    println!("Point 2D is x: {} - y: {}", c.x, c.y)
+}
+
+fn add_points (a: Point2D, b: Point2D) -> Point2D {
+    Point2D {
+        x: a.x + b.x,
+        y: a.y + b.y,
+    }
 }
