@@ -1,5 +1,6 @@
 fn main() {
-    let clo = |x| { x + 1};
+    let val = 26;
+    let clo = |x| { x + val};
 
-    println!("The result is {}", clo(6));
+    println!("The result is {}", clo(1));
 }
