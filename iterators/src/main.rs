@@ -6,12 +6,11 @@ fn main() {
     println!("Enum {:?}", enum_it.next());
 
 
-    let mut num_it = vec![1 .. 999999].into_iter();
+    let num_it = (1..10).into_iter();
 
-    num_it.skip(200);
+    let other : Vec<i32> = num_it.map(|x| {
+        x as i32 + 3
+    }).collect();
 
-    let mut taken = num_it.take(50);
-    let coll : Vec<i32> = taken.collect();
-
-    println!("Enum Taken {:?}", coll);
+    println!("Map {:?}", other);
 }
