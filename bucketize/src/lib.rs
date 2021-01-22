@@ -1,3 +1,24 @@
+//! Bucketize is a crate for slotting values in a bucket
+//! To do this create a Bucketizer and add yout buckets to it,
+//! then use the '.bucketize()' to get back the bucket a value fits into,
+//! 
+//! # Example
+//! ```
+//! use bucketize::Bucketizer;
+//!  
+//! let b = Bucketizer::new()
+//!     .bucket(Some(-1.0), Some(0.0), -0.5)
+//!     .bucket(Some(0.0), Some(1.0), 0.5);
+//!     assert_eq!(b.bucketize(99.97), None);
+//! ```
+//! 
+//! Bucketizer holds the list of bucket you want to slot values into,
+//! and does the 'bucketization' operation
+//! 
+//! You can create one with 'new()' and add with chained 'bucket()' calls.
+//! Buckets are min inclusive and max esclusive, if a given value matches no bucket,
+//! Bucktize returns None.
+
 #[derive(Clone, Debug, PartialEq)]
 pub struct Bucketizer {
     buckets: Vec<Bucket>,
