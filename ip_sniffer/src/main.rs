@@ -60,10 +60,6 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     let program = args[0].clone();
 
-    // for arg in &args {
-    //     println!("{}", arg)
-    // }
-
     let arguments = Arguments::new(&args).unwrap_or_else(|err| {
         if err.contains("help") {
             process::exit(0);
@@ -114,7 +110,7 @@ fn scan (tr: Sender<u16>, start_port: u16, addr: IpAddr, num_threads: u16) {
 
                 tr.send(port).unwrap();
             }
-            Err(msg) => {}
+            Err(_) => {}
         }
 
         if (MAX - port) <= num_threads {
