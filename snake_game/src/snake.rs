@@ -2,11 +2,11 @@ use std::collections::LinkedList;
 use piston_window::{Context, G2d};
 use piston_window::types::Color;
 
-use draw::draw_block;
+use crate::draw::draw_block;
 
 const SNAKE_COLOR: Color = [0.00, 0.00, 0.00, 1.00];
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq)]
 pub enum Direction {
     Up,
     Down,
@@ -25,6 +25,7 @@ impl Direction {
     }
 }
 
+#[derive(Debug, Copy, Clone)]
 struct Block {
     x: i32,
     y: i32
@@ -113,5 +114,47 @@ impl Snake {
         self.direction
     }
 
+    pub fn next_head(&self, dir: Option<Direction>) -> (i32, i32) {
+        let (head_x, head_y) : (i32, i32) = self.head_position();
+
+        let mut moving_dir = self.direction;
+
+        match dir {
+            Some(d) => moving_dir = d,
+            None => {}
+        }
+
+        match moving_dir {
+            Direction::Up => (head_x, head_y - 1),
+            Direction::Down=> (head_x, head_y + 1),
+            Direction::Left => (head_x - 1, head_y),
+            Direction::Right => (head_x + 1, head_y),
+        }
+    }
+
+    pub fn restore_tail (&mut self) {
+        let blk = self.tail.clone().unwrap();
+
+        self.body.push_back(blk);
+    }
+
+
+    pub fn overlap_tail (&self, x: i32, y: i32) -> bool {
+        let mut ch = 0;
+
+        for block in &self.body {
+            if x == block.x && y == block.y {
+                return true;
+            }
+
+            ch += 1;
+
+            if ch == self.body.len() - 1{
+                break;
+            }
+        }
+        
+        return false;
+    }
 
 }
