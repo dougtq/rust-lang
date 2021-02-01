@@ -1,8 +1,5 @@
 //! generate bitmap of a stream of random numbers from an
 //! implementation of the KISS() pseudo random number generator.
-//!
-//! demonstrations how to use static/global variables in rust, bitwise
-//! operations, and the image crate.
 
 extern crate image;
 
