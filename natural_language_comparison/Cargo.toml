@@ -1,0 +1,10 @@
+[package]
+name = "natural_language_comparison"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+whatlang = "0.16.2"
+lingua = "1.4.0"
