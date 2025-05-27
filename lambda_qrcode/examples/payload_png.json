@@ -1,0 +1,9 @@
+{
+  "data": "00020126460014BR.GOV.BCB.PIX0124asfqwgaf2312412rfdsafasf52040000530398654041.005802BR5905TESTE6009Sao Paulo62070503***63041FA8",
+  "bucket": "meu-bucket",
+  "prefix": "qrcodes",
+  "format": "png",
+  "ec_level": "H",
+  "min_size": 500,
+  "margin": 4
+}
